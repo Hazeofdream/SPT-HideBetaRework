@@ -10,12 +10,12 @@ using System.Reflection;
 
 namespace HideBetaRework
 {
-    [BepInPlugin("redlaser42.MainMenuCleaner", "MainMenuCleaner", "1.0.0")]  
+    [BepInPlugin("redlaser42.MainMenuCleaner", "MainMenuCleaner", "1.1.0")]  
     public class Plugin : BaseUnityPlugin
     {
         public static ManualLogSource LogSource;
 
-        private void Awake() //Awake() will run once when your plugin loads
+        private void Awake()
         {
             LogSource = Logger;
             LogSource.LogInfo("MainMenuCleaner loaded!");
@@ -24,7 +24,6 @@ namespace HideBetaRework
             new HideVersionPatch().Enable();
             //new HideTopGlowPatch().Enable();
             new HideGameModePatch().Enable();
-
         }
     }
 }

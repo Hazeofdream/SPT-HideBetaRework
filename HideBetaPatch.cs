@@ -1,14 +1,6 @@
 ﻿using HarmonyLib;
-using System;
-using System.Collections.Generic;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
-using EFT;
-using System.Runtime.CompilerServices;
 using EFT.UI;
-using UnityEngine;
-using SPT.Core.Patches;
 using SPT.Reflection.Patching;
 
 namespace HideBetaRework.Patches
@@ -17,13 +9,13 @@ namespace HideBetaRework.Patches
     {
         protected override MethodBase GetTargetMethod()
         {
-            return AccessTools.Method(typeof(MenuScreen), nameof(MenuScreen.method_3));
+            return AccessTools.Method(typeof(MenuScreen), nameof(MenuScreen.ChangeToReconnectionAvailable));
         }
 
         [PatchPostfix]
-        static void Postfix(MenuScreen __instance, GameObject ____alphaWarningGameObject)
+        static void Postfix(MenuScreen __instance)
         {
-            ____alphaWarningGameObject.SetActive(false);
+            __instance._alphaWarningGameObject.SetActive(false);
         }
     }
 }
